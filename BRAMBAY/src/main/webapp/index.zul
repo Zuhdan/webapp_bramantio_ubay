@@ -11,5 +11,5 @@
 				<button onClick="@command('result')"/>
 				<label value="@load(vm.res)"/>
 			</hlayout>
-	</window>
+</window>
 </zk>

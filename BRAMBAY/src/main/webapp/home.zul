@@ -1,11 +1,23 @@
 <zk>
-    <hlayout>count: <label value="@load(vm.count)" /></hlayout>
-    <button label="add" onClick="@command('cmd')"/>
-    <hlayout>
-        <intbox value="@bind(vm.first)"/>
-        <label value="+"/>
-        <intbox value="@bind(vm.second)"/>
-        <button onClick="@command('result')"/>
-        <label value="@load(vm.res)"/>
-    </hlayout>
+    <window height="100%" width="100%" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm')@init('com.bramantio.ubay.webapp.project.MyViewModel')"
+            validationMessages="@id('vmsgs')">
+
+        <div style="background-color: #1b4222" height="100%" width="100%">
+            <div align="center" width="100%" height="30">
+                <label value="welcome to bramantio tour and travel"
+                   style="color:red; font-weight:bold; font-size:14pt"/>
+            </div>
+            <hlayout>count: <label value="@load(vm.count)" /></hlayout>
+            <button label="add" onClick="@command('cmd')"/>
+            <hlayout>
+                <intbox value="@bind(vm.first)"/>
+                <label value="+"/>
+                <intbox value="@bind(vm.second)"/>
+                <button onClick="@command('result')"/>
+                <label value="@load(vm.res)"/>
+            </hlayout>
+        </div>
+
+    </window>
 </zk>
