@@ -1,0 +1,11 @@
+<zk>
+    <hlayout>count: <label value="@load(vm.count)" /></hlayout>
+    <button label="add" onClick="@command('cmd')"/>
+    <hlayout>
+        <intbox value="@bind(vm.first)"/>
+        <label value="+"/>
+        <intbox value="@bind(vm.second)"/>
+        <button onClick="@command('result')"/>
+        <label value="@load(vm.res)"/>
+    </hlayout>
+</zk>

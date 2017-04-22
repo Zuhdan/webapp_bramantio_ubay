@@ -1,5 +1,4 @@
 <zk>
-
 	<window apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm')@init('com.bramantio.ubay.webapp.project.MyViewModel')"
 		validationMessages="@id('vmsgs')">
