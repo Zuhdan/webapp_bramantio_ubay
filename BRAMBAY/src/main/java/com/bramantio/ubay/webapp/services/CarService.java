@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface CarService {
 
-    List<CarModelDTO> showName(); // for return name list of car
+    List<String> showCarName(); // for return name list of car
 
-    List<CarModelDTO> findDetail(String name); // for return information of selected car
+    CarModelDTO findDetail(String name); // for return information of selected car
 
 }

@@ -11,6 +11,8 @@ public class CarModelDTO {
     private String carDescription;
     private String carUrl;
 
+    public CarModelDTO(){}
+
     public CarModelDTO(int carId, String carName, String carDescription, String carUrl) {
         this.carId = carId;
         this.carName = carName;
