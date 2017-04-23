@@ -1,23 +1,58 @@
 <zk>
     <window height="100%" width="100%" apply="org.zkoss.bind.BindComposer"
-            viewModel="@id('vm')@init('com.bramantio.ubay.webapp.project.MyViewModel')"
+            viewModel="@id('vm')@init('com.bramantio.ubay.webapp.project.homeVM')"
             validationMessages="@id('vmsgs')">
-
-        <div style="background-color: #1b4222" height="100%" width="100%">
+        <div style="background-color: #eff2f2" height="100%" width="100%">
             <div align="center" width="100%" height="30">
                 <label value="welcome to bramantio tour and travel"
                    style="color:red; font-weight:bold; font-size:14pt"/>
             </div>
-            <hlayout>count: <label value="@load(vm.count)" /></hlayout>
-            <button label="add" onClick="@command('cmd')"/>
-            <hlayout>
-                <intbox value="@bind(vm.first)"/>
-                <label value="+"/>
-                <intbox value="@bind(vm.second)"/>
-                <button onClick="@command('result')"/>
-                <label value="@load(vm.res)"/>
-            </hlayout>
+            <grid vflex="1" width="400px">
+                <columns>
+                    <column label="Type" width="150px"/>
+                    <column label="Content" width="200px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="name"/>
+                        <textbox value="@bind(vm.name)"/>
+                    </row>
+                    <row>
+                        <label value="email"/>
+                        <textbox value="@bind(vm.email)"/>
+                    </row>
+                    <row>
+                        <label value="phone number"/>
+                        <intbox value="@bind(vm.phone)"/>
+                    </row>
+                    <row>
+                        <label value="tujuan"/>
+                        <textbox value="@bind(v.tujuan)"/>
+                    </row>
+                    <row>
+                        <label value="tanggal pemakaian"/>
+                        <datebox onCreate="self.value = new Date()" value="@bind(vm.date)" format="E dd/MM/yyyy"/>
+                    </row>
+                    <row>
+                        <label value="jam pemakaian"/>
+                        <hbox>
+                            <timebox cols="8" format="short" onCreate="self.value = new Date()" value="@bind(vm.timeStart)"/>
+                            <label value="to"/>
+                            <timebox cols="8" format="short" onCreate="selv.value = new Date()" value="@bind(vm.timeEnd)"/>
+                        </hbox>
+                    </row>
+                    <row>
+                        <label value="jenis mobil"/>
+                        <hbox>
+                            <combobox width="250px" value="@load(v.model)" selectedItem="@bind(v.selectedModel)"/>
+                            <button onClick="@command('find')" label="find"/>
+                        </hbox>
+                    </row>
+                </rows>
+                <cell colspan="2" style="text-align:center">
+                    <button onClick="@command('booking')" label="booking"/>
+                </cell>
+            </grid>
         </div>
-
     </window>
 </zk>
