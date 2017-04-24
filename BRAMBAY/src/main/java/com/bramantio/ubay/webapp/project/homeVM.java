@@ -2,8 +2,11 @@ package com.bramantio.ubay.webapp.project;
 
 
 import com.bramantio.ubay.webapp.dto.CarModelDTO;
+import com.bramantio.ubay.webapp.dto.UserDTO;
 import com.bramantio.ubay.webapp.services.CarService;
+import com.bramantio.ubay.webapp.services.UserSevice;
 import com.bramantio.ubay.webapp.services.implementation.CarServiceImpl;
+import com.bramantio.ubay.webapp.services.implementation.UserServiceImpl;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zul.Messagebox;
@@ -23,6 +26,8 @@ public class homeVM {
     private List<String> listCar;
     CarService carService = new CarServiceImpl();
     CarModelDTO carModelDto = new CarModelDTO();
+    UserSevice userSevice = new UserServiceImpl();
+    UserDTO userDTO = new UserDTO();
 
     @Command
     @NotifyChange({"carId", "carName", "carDescription", "carUrl"})
@@ -32,6 +37,17 @@ public class homeVM {
         setCarName(carModelDto.getCarName());
         setCarDescription(carModelDto.getCarDescription());
         setCarUrl(carModelDto.getCarUrl());
+    }
+
+    @Command
+    public void booking(){
+
+        Boolean success = userSevice.saveUser(userDTO);
+        if (success){
+            Messagebox.show("YEAH, SAVED!","Information Saved", Messagebox.OK,Messagebox.INFORMATION);
+        } else {
+            Messagebox.show("OUCH, NOT SAVED!","Information Saved", Messagebox.OK,Messagebox.INFORMATION);
+        }
     }
 
     public String getName() {

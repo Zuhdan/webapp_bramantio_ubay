@@ -8,9 +8,11 @@ public class UserDTO {
 
     private String userName;
     private String userEmail;
-    private int userPhone;
+    private String userPhone;
 
-    public UserDTO(String userName, String userEmail, int userPhone) {
+    public UserDTO(){};
+
+    public UserDTO(String userName, String userEmail, String userPhone) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
@@ -32,11 +34,11 @@ public class UserDTO {
         this.userEmail = userEmail;
     }
 
-    public int getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(int userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 
