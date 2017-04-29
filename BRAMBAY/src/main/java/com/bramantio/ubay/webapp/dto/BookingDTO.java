@@ -12,17 +12,16 @@ public class BookingDTO {
 
     private UserDTO userBooker;
     private String tujuan;
-    private Date dateBooking, hourBooking; //keterangan waktu dan tanggal booking
-    private Date dateBook, hourBook; //keterangan waktu dan tanggal tujuan booking
+    private Date dateUsed; //keterangan waktu dan tanggal booking
+    private Date startHour, endHour; //keterangan waktu dan tanggal tujuan booking
     private CarModelDTO carModel;
 
-    public BookingDTO(UserDTO userBooker, String tujuan, Date dateBooking, Date hourBooking, Date dateBook, Date hourBook, CarModelDTO carModel) {
+    public BookingDTO(UserDTO userBooker, String tujuan, Date dateUsed, Date startHour, Date endHour, CarModelDTO carModel) {
         this.userBooker = userBooker;
         this.tujuan = tujuan;
-        this.dateBooking = dateBooking;
-        this.hourBooking = hourBooking;
-        this.dateBook = dateBook;
-        this.hourBook = hourBook;
+        this.dateUsed = dateUsed;
+        this.startHour = startHour;
+        this.endHour = endHour;
         this.carModel = carModel;
     }
 
@@ -42,36 +41,28 @@ public class BookingDTO {
         this.tujuan = tujuan;
     }
 
-    public Date getDateBooking() {
-        return dateBooking;
+    public Date getDateUsed() {
+        return dateUsed;
     }
 
-    public void setDateBooking(Date dateBooking) {
-        this.dateBooking = dateBooking;
+    public void setDateUsed(Date dateUsed) {
+        this.dateUsed = dateUsed;
     }
 
-    public Date getHourBooking() {
-        return hourBooking;
+    public Date getStartHour() {
+        return startHour;
     }
 
-    public void setHourBooking(Date hourBooking) {
-        this.hourBooking = hourBooking;
+    public void setStartHour(Date startHour) {
+        this.startHour = startHour;
     }
 
-    public Date getDateBook() {
-        return dateBook;
+    public Date getEndHour() {
+        return endHour;
     }
 
-    public void setDateBook(Date dateBook) {
-        this.dateBook = dateBook;
-    }
-
-    public Date getHourBook() {
-        return hourBook;
-    }
-
-    public void setHourBook(Date hourBook) {
-        this.hourBook = hourBook;
+    public void setEndHour(Date endHour) {
+        this.endHour = endHour;
     }
 
     public CarModelDTO getCarModel() {

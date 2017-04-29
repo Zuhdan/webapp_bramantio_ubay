@@ -15,7 +15,7 @@
                     </columns>
                     <rows>
                         <row>
-                            <label value="name"/>
+                            <label value="@load(vm.name)"/>
                             <textbox value="@bind(vm.name)"/>
                         </row>
                         <row>
@@ -24,7 +24,7 @@
                         </row>
                         <row>
                             <label value="phone number"/>
-                            <intbox value="@bind(vm.phone)" cols="14"/>
+                            <textbox value="@bind(vm.phone)"/>
                         </row>
                         <row>
                             <label value="tujuan"/>

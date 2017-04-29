@@ -20,8 +20,8 @@ import java.util.List;
  */
 public class homeVM {
 
-    private String name, email, tujuan, carSelected, carName, carDescription, carUrl;
-    private int phone, carId;
+    private String name, email, tujuan, carSelected, carName, carDescription, carUrl, phone;
+    private int carId;
     private Date date, timeStart, timeEnd;
     private List<String> listCar;
     CarService carService = new CarServiceImpl();
@@ -30,18 +30,22 @@ public class homeVM {
     UserDTO userDTO = new UserDTO();
 
     @Command
-    @NotifyChange({"carId", "carName", "carDescription", "carUrl"})
+    @NotifyChange({"carId", "carName", "carDescription", "carUrl", "name"})
     public void find(){
         carModelDto = carService.findDetail(carSelected);
         setCarId(carModelDto.getCarId());
         setCarName(carModelDto.getCarName());
         setCarDescription(carModelDto.getCarDescription());
         setCarUrl(carModelDto.getCarUrl());
+        setName("masPanro");
+        Messagebox.show("yuhu");
     }
 
     @Command
     public void booking(){
-
+        userDTO.setUserName(this.name);
+        userDTO.setUserPhone(this.phone);
+        userDTO.setUserEmail(this.email);
         Boolean success = userSevice.saveUser(userDTO);
         if (success){
             Messagebox.show("YEAH, SAVED!","Information Saved", Messagebox.OK,Messagebox.INFORMATION);
@@ -90,11 +94,11 @@ public class homeVM {
         this.carSelected = carSelected;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
